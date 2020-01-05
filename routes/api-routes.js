@@ -6,7 +6,7 @@ module.exports = function(app) {
     //route to create a burger
     app.post("/api/burgers/", async function(req, res) {
         console.log(">>>>>>>>>>>", req.body)
-        const burger = await db.Burger.create({ burgerName: req.body.burgerName });
+        const burger = await db.Burger.create({ burger_name: req.body.burger_name });
         res.json(burger);
     });
     //route to get all the burgers

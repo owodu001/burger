@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
         devoured: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
-        }
+        },
     });
 
     // make every thing work with db

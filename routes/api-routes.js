@@ -12,6 +12,7 @@ module.exports = function(app) {
     //route to get all the burgers
     app.get("/api/burgers", (req, res) => {
         db.Burger.findAll({}).then(burgers => {
+            console.log(burgers.length);
             res.json(burgers);
         });
     });

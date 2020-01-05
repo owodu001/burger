@@ -6,7 +6,7 @@ const Sequelize = require('sequelize')
 // magic index file to make
 // the things work
 module.exports = function(sequelize, DataTypes) {
-    const Burger = sequelize.define('burgers', {
+    const Burger = sequelize.define('Burger', {
 
         // define the schema --->add id: an auto incrementing int that serves as 
         // the primary key.

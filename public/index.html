@@ -10,12 +10,20 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <title>Document</title>
+    <script>
+        function devourClickHandler(e) {
+            var event = e || window.event;
+            console.log(event);
+            const deleteId = document.getElementById(event.target.id).getAttribute("data-id");
+            deleteBurger(deleteId);
+        };
+    </script>
 </head>
 
 <body>
     <h1>Coming Soon!</h1>
     <button type="button" id="submit-button" class="btn btn-primary">Submit</button>
-    <button type="button" id="delete-button" class="btn btn-primary">Devour</button>
+    <button onclick="devourClickHandler()" type="button" data-id="6" id="delete-button-6" class="btn btn-primary">Devour</button>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         function addBurger(name) {
@@ -32,9 +40,9 @@
         }
 
         document.getElementById("submit-button").addEventListener("click", function() {
-
             addBurger("hi");
         });
+
         axios.get('/api/burgers')
             .then(function(response) {
                 console.log(response);
@@ -49,9 +57,10 @@
             });
 
         function deleteBurger(name) {
-
             axios.delete('/api/burgers', {
-                    burger_name: name
+                    data: {
+                        burger_name: name
+                    }
                 })
                 .then(function(response) {
                     console.log(response);
@@ -61,10 +70,7 @@
                 });
         }
 
-        // document.getElementById("delete-button").addEventListener("click", function() {
 
-        //     deleteBurger("hi");
-        // });
         // create a way to add new burgers
     </script>
 </body>

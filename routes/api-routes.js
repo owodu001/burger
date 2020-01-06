@@ -16,5 +16,11 @@ module.exports = function(app) {
             res.json(burgers);
         });
     });
+
     // route to delete a burger
+    app.delete("/api/burgers/", (req, res) => {
+        console.log(">>>>>>>>>>>", req.body)
+            // const burger = await db.Burger.create({ burger_name: req.body.burger_name });
+            // res.json(burger);
+    });
 };

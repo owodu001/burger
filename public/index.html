@@ -23,8 +23,9 @@
 <body>
     <div class="container">
         <h1>Eat-Da-Burger</h1>
-        <div id="burgers" class="row">
-
+        <div class="row">
+            <div class="col-6" id="uneaten"></div>
+            <div class="col-6" id="devoured"></div>
         </div>
         <div class="row">
 
@@ -65,14 +66,14 @@
             axios.get('/api/burgers')
                 .then(function(response) {
                     console.log(response);
-                    const burgersEl = document.getElementById("burgers");
+                    const uneatenEl = document.getElementById("uneaten");
                     const burgerElStr = response.data.map(burger => `
                 <div>${burger.burger_name}
                     <button id="${burger.id}" class="devour-button btn btn-primary">Devour</button>
                 </div>`);
                     console.log(burgerElStr);
                     const innerHtml = burgerElStr.join("\n<hr/>\n");
-                    burgersEl.innerHTML = innerHtml
+                    uneatenEl.innerHTML = innerHtml
                     console.log(innerHtml);
                 })
                 .catch(function(error) {

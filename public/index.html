@@ -11,12 +11,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <title>Document</title>
     <script>
-        function devourClickHandler(e) {
-            const event = e || window.event;
-            console.log(event);
-            const deleteId = document.getElementById(event.target.id).getAttribute("data-id");
-            deleteBurger(deleteId);
-        };
+        // function devourClickHandler(e) {
+        //     const event = e || window.event;
+        //     console.log(event);
+        //     const deleteId = document.getElementById(event.target.id).getAttribute("data-id");
+        //     deleteBurger(deleteId);
+        // };
     </script>
 </head>
 
@@ -38,7 +38,7 @@
         </div>
         <label for="exampleFormControlTextarea1">Enter a burger you want to eat and click the "Submit" button</label>
     </div>
-    <button onclick="devourClickHandler()" type="button" data-id="6" id="delete-button-6" class="btn btn-primary">Devour</button>
+    <!-- <button onclick="devourClickHandler()" type="button" data-id="6" id="delete-button-6" class="btn btn-primary">Devour</button> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         const inputEl = document.getElementById("exampleFormControlTextarea1");
@@ -68,7 +68,7 @@
                     const burgersEl = document.getElementById("burgers");
                     const burgerElStr = response.data.map(burger => `
                 <div>${burger.burger_name}
-                    <button id="${burger.id}" class="devour-button">Devour</button>
+                    <button id="${burger.id}" class="devour-button btn btn-primary">Devour</button>
                 </div>`);
                     console.log(burgerElStr);
                     const innerHtml = burgerElStr.join("\n<hr/>\n");
@@ -81,8 +81,8 @@
         };
         getTheBurgers()
 
-        function deleteBurger() {
-            axios.delete(`/api/burgers/${event.target.id}`)
+        function devourBurger() {
+            axios.post(`/api/burgers/${event.target.id}`)
                 .then(function(response) {
                     console.log(response);
                     getTheBurgers()
@@ -94,7 +94,7 @@
 
         addEventListener("click", function(event) {
             console.log(event.target.id);
-            deleteBurger();
+            devourBurger();
         })
 
 

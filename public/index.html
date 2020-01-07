@@ -23,7 +23,7 @@
 <body>
     <div class="container">
         <h1>Eat-Da-Burger</h1>
-        <div class="row">
+        <div id="burgers" class="row">
 
         </div>
         <div class="row">
@@ -41,6 +41,7 @@
     <button onclick="devourClickHandler()" type="button" data-id="6" id="delete-button-6" class="btn btn-primary">Devour</button>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+        // insert inputEl.value when addBurger function called
         const inputEl = document.getElementById("exampleFormControlTextarea1");
         console.log(inputEl.value);
 
@@ -64,11 +65,12 @@
         axios.get('/api/burgers')
             .then(function(response) {
                 console.log(response);
-                // const burgersEl = document.getElementById("burgers")
-                // const burgerElStr = response.data.map(burger => `<div>${burger.burger_name}</div>`)
-                // const innerHtml = burgerElStr.join("\n<hr />\n")
-                // burgersEl.innerHTML = innerHtml
-                // console.log(innerHtml);
+                const burgersEl = document.getElementById("burgers");
+                const burgerElStr = response.data.map(burger => `<div>${burger.burger_name}</div>`);
+                console.log(burgerElStr);
+                const innerHtml = burgerElStr.join("\n<hr/>\n");
+                burgersEl.innerHTML = innerHtml
+                console.log(innerHtml);
             })
             .catch(function(error) {
                 console.log(error);

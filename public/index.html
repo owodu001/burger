@@ -80,8 +80,18 @@
                 </div>`);
                     const innerHtml = uneatenElStr.join("\n<hr/>\n");
                     uneatenEl.innerHTML = innerHtml
-                        // look at mdn for filter vs map - filter out devoured burgers on the left
 
+
+
+                    const eaten = burgerArray.filter(function(value) {
+                        return value.devoured === true;
+                    })
+                    console.log(eaten);
+                    const eatenEl = document.getElementById("devoured");
+                    const eatenElStr = eaten.map(burger => `
+                    <div>${burger.burger_name}</div>`);
+                    const eatenHtml = eatenElStr.join("\n<hr/>\n");
+                    eatenEl.innerHTML = eatenHtml;
                 })
                 .catch(function(error) {
                     console.log(error);

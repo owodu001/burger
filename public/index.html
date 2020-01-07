@@ -21,11 +21,29 @@
 </head>
 
 <body>
-    <h1>Coming Soon!</h1>
-    <button type="button" id="submit-button" class="btn btn-primary">Submit</button>
+    <div class="container">
+        <h1>Eat-Da-Burger</h1>
+        <div class="row">
+
+        </div>
+        <div class="row">
+
+
+            <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <button type="button" id="submit-button" class="btn btn-primary">Submit</button>
+        </div>
+        <label for="exampleFormControlTextarea1">Enter a burger you want to eat and click the "Submit" button</label>
+    </div>
     <button onclick="devourClickHandler()" type="button" data-id="6" id="delete-button-6" class="btn btn-primary">Devour</button>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+        const inputEl = document.getElementById("exampleFormControlTextarea1");
+        console.log(inputEl.value);
+
         function addBurger(name) {
 
             axios.post('/api/burgers', {
@@ -73,6 +91,7 @@
 
         // create a way to add new burgers
     </script>
+    <!-- <script src="../controllers/burgers_controller.js"></script> -->
 </body>
 
 </html>

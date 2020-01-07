@@ -18,9 +18,9 @@ module.exports = function(app) {
     });
 
     // route to delete a burger
-    app.delete("/api/burgers/", (req, res) => {
+    app.delete("/api/burgers/:id", async function(req, res) {
         console.log(">>>>>>>>>>>", req.body)
-            // const burger = await db.Burger.create({ burger_name: req.body.burger_name });
-            // res.json(burger);
+        const burger = await db.Burger.destroy({ where: { id: req.params.id } });
+        res.json(burger);
     });
 };

@@ -73,7 +73,7 @@
                     const uneatenEl = document.getElementById("uneaten");
                     const uneatenElStr = notDevoured.map(burger => `
                 <div class="boxes">${burger.burger_name}
-                    <button id="${burger.id}" class="d-flex justify-content-end devour-button btn btn-primary btn-sm">Devour</button>
+                    <button id="${burger.id}" class="d-flex justify-content-end devour-button btn btn-primary btn-sm">Devour It!</button>
                 </div>`);
                     const innerHtml = uneatenElStr.join("\n<hr/>\n");
                     uneatenEl.innerHTML = innerHtml

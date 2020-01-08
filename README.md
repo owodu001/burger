@@ -8,7 +8,7 @@ https://michelles-burger.herokuapp.com/
 
 ### Description
 
-This is a a burger logger using Sequelize, Node, and Express.
+This is a a burger logger using Sequelize, Node, and Express.  Users can enter a burger they would like to eat and are given the option to devour it.  Once devoured, burgers move to the right into the eaten queue.  There is no limit to amount of burgers one may devour!
 
 
 ### Visuals
